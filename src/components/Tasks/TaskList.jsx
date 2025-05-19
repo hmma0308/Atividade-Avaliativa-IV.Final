@@ -63,7 +63,7 @@ const handleDelete = async (taskId) => {
       {loading ? (
         <p>Carregando tarefas...</p>
       ) : tasks.length === 0 ? (
-        <p>No tasks found. Create your first task!</p>
+        <p>Nenhuma tarefa encontrada. Crie sua primeira tarefa!</p>
       ) : (
         <ul className="task-list">
           {tasks.map(task => (
