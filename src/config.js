@@ -1,0 +1,1 @@
+export const API_BASE_URL = 'https://atividade-avaliativa-iv-v2-1.vercel.app';
