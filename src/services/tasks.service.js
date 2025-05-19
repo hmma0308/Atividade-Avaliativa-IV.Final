@@ -39,7 +39,8 @@ export const getTaskById = async (id, token) => {
 };
 
 export const updateTask = async (id, taskData, token) => {
-  return fetchWithAuth(`${API_BASE_URL}/tasks/task.id`, {
+  const numericId = Number(id);
+  return fetchWithAuth(`${API_BASE_URL}/tasks/${numericId}`, {
     method: 'PUT',
     body: JSON.stringify(taskData),
   }, token);

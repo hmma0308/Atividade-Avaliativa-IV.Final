@@ -11,7 +11,8 @@ const TaskItem = ({ task, onDelete, onEdit }) => {
 const toggleCompleted = async () => {
   try {
     setIsUpdating(true);
-    const updatedTask = await updateTask(task.id, { 
+    const taskId = Number(task.id);
+    const updatedTask = await updateTask(taskId, { 
       completed: !isCompleted 
     }, token);
     setIsCompleted(updatedTask.completed);
@@ -42,7 +43,7 @@ const toggleCompleted = async () => {
               onChange={toggleCompleted}
               disabled={isUpdating}
             />
-            <span>{isCompleted ? 'Completa' : ' Marcar completa'}</span>
+            <span>{isCompleted ? ' Completa' : ' Marcar completa'}</span>
           </label>
         </div>
         {task.description && <p>{task.description}</p>}
@@ -51,7 +52,7 @@ const toggleCompleted = async () => {
             Prazo: {formatDate(task.dueDate)}
           </span>
           <span className={`status ${isCompleted ? 'completa' : 'pendente'}`}>
-            {isCompleted ? '✓  Completa' : '⏳ Pendente'}
+            {isCompleted ? ' ✓  Completa' : '⏳ Pendente'}
           </span>
         </div>
       </div>
