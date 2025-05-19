@@ -11,8 +11,7 @@ const TaskItem = ({ task, onDelete, onEdit }) => {
 const toggleCompleted = async () => {
   try {
     setIsUpdating(true);
-    const taskId = Number(task.id);
-    const updatedTask = await updateTask(taskId, { 
+    const updatedTask = await updateTask(task.id, { 
       completed: !isCompleted 
     }, token);
     setIsCompleted(updatedTask.completed);
@@ -26,7 +25,7 @@ const toggleCompleted = async () => {
 };
 
   const formatDate = (dateString) => {
-    if (!dateString) return 'No due date';
+    if (!dateString) return 'Sem prazo';
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };

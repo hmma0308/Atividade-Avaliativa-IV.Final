@@ -31,7 +31,7 @@ const TaskList = () => {
 
 const handleDelete = async (taskId) => {
   try {
-    await deleteTask(number(taskId), token);
+    await deleteTask(taskId, token);
     setTasks(prevTasks => prevTasks.filter(task => task.id !== taskId));
     toast.success('Task deleted successfully');
   } catch (error) {
@@ -61,7 +61,7 @@ const handleDelete = async (taskId) => {
       />
       
       {loading ? (
-        <p>Loading tasks...</p>
+        <p>Carregando tarefas...</p>
       ) : tasks.length === 0 ? (
         <p>No tasks found. Create your first task!</p>
       ) : (

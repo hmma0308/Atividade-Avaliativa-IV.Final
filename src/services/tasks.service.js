@@ -35,20 +35,18 @@ export const createTask = async (taskData, token) => {
 };
 
 export const getTaskById = async (id, token) => {
-  const numericId = Number(id);
-  return fetchWithAuth(`${API_BASE_URL}/tasks/${numericId}`, {}, token);
+  return fetchWithAuth(`${API_BASE_URL}/tasks/task.id`, {}, token);
 };
 
 export const updateTask = async (id, taskData, token) => {
-  const numericId = Number(id);
-  return fetchWithAuth(`${API_BASE_URL}/tasks/${numericId}`, {
+  return fetchWithAuth(`${API_BASE_URL}/tasks/task.id`, {
     method: 'PUT',
     body: JSON.stringify(taskData),
   }, token);
 };
 
 export const deleteTask = async (taskId, token) => {
-  const numericId = Number(taskId);
+  const numericId = taskId;
   return fetchWithAuth(`${API_BASE_URL}/tasks/${numericId}`, {
     method: 'DELETE',
   }, token);
